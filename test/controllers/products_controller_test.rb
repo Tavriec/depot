@@ -24,7 +24,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create product" do
     assert_difference('Product.count') do
-      post :create, product: @update
+      post :create, id: @product, product: @update
     end
 
     assert_redirected_to product_url(Product.last)
@@ -42,7 +42,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update product" do
     patch :update, id: @product, product: @update
-    assert_redirected_to product_url(@product)
+    assert_redirected_to :index
   end
 
   test "should destroy product" do
