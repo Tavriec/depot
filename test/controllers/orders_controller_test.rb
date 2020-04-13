@@ -10,6 +10,22 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "requires item in cart" do
+    get :new
+    assert_redirected_to store_path
+    assert_equal flash[:notice], 'Your cart is empty'
+  end
+
+  test "should get new2" do
+    item = LineItem.new
+    item.build_cart
+    item.product = products(:ruby)
+    item.save!
+    session[:cart_id] = item.cart.id
+    get :new
+    assert_response :success
+  end
+
   test "should get new" do
     get new_order_url
     assert_response :success
