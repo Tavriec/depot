@@ -15,7 +15,7 @@
   "version": "0.1.0",
   "devDependencies": {
     "css-loader": "^3.5.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "pug": "^2.0.4",
     "pug-plain-loader": "^1.0.0",
     "sass-loader": "^8.0.2",
